@@ -1,8 +1,13 @@
+using Projects;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var apiService = builder.AddProject<Projects.FS_ApiService>("apiservice");
+var sql = builder.AddSqlServer("sql")
+                 .AddDatabase("sqldata");
 
-builder.AddProject<Projects.FS_Web>("webfrontend")
+var apiService = builder.AddProject<FS_ApiService>("apiservice").WithReference(sql);
+
+builder.AddProject<FS_Web>("webfrontend")
     .WithExternalHttpEndpoints()
     .WithReference(apiService);
 

@@ -1,4 +1,5 @@
-﻿using FS.Data.Base;
+﻿using FS.Data.Attributes;
+using FS.Data.Base;
 
 namespace FS.Data.Models.Messurements
 {
@@ -8,8 +9,10 @@ namespace FS.Data.Models.Messurements
 
         private string _longName = longName;
 
+        [ShortTextValidation(nameof(Messurement), nameof(ShortName))]
         public string ShortName { get => _shortName; set => _shortName = value; }
         
+        [LongTextValidation(nameof(Messurement), nameof(LongName))]
         public string LongName { get => _longName; set => _longName = value; }
     }
 }

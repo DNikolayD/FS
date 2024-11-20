@@ -1,14 +1,18 @@
-﻿using FS.Data.Base;
+﻿using FS.Data.Attributes;
+using FS.Data.Base;
+using FS.Data.Models.Currencies;
 
 namespace FS.Data.Models.Balances
 {
-    public class Balance(string currency = "BG", decimal value = 0) : Model<int>, IBalance
+    public class Balance(decimal value = 0) : Model<int>, IBalance
     {
-        private string _currency = currency;
-
         private decimal _value = value;
 
-        public string Currency { get => _currency; set => _currency = value; }
+        [ValueValidation(nameof(Balance), nameof(Value))]
         public decimal Value { get => _value; set => _value = value; }
+        
+        public int CurrencyId  => Currency.Id; 
+        
+        public required ICurrency Currency { get; set; }
     }
 }

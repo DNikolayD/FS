@@ -2,7 +2,7 @@
 
 namespace FS.Data.Base
 {
-    public class Model<T>(bool isDefault = false, 
+    public class Model<T>(bool isDefault = false,
         DateTime createTime = default, 
         bool isEditable = false, 
         bool isModified = false, 
@@ -32,7 +32,7 @@ namespace FS.Data.Base
             this.Id = InstantiateId<T>();
             }
 
-        public T Id { get; set; }
+        public required T Id { get; set; }
 
         public bool IsDefault { get => _isDefault; set => _isDefault = value; }
 

@@ -14,8 +14,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FS.Tests", "FS.Tests\FS.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FS.Data", "FS.Data\FS.Data.csproj", "{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{43C9167F-1B7F-4A97-A433-B1F8CB3A81DB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,10 +44,6 @@ Global
 		{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43C9167F-1B7F-4A97-A433-B1F8CB3A81DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43C9167F-1B7F-4A97-A433-B1F8CB3A81DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43C9167F-1B7F-4A97-A433-B1F8CB3A81DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43C9167F-1B7F-4A97-A433-B1F8CB3A81DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

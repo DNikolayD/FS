@@ -1,11 +1,14 @@
 ﻿using FS.Data.Base;
+using FS.Data.Models.Currencies;
 
 namespace FS.Data.Models.Balances
 {
     public interface IBalance : IModel<int>
     {
-        public string Currency { get; set; }
-
         public decimal Value { get; set; }
+        
+        public int CurrencyId { get; }
+
+        public ICurrency Currency { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+﻿using FS.Data.Base;
+using FS.Data.Models.Categories;
+using FS.Data.Models.Messurements;
+using FS.Data.Models.Packegings;
+using FS.Data.Models.Partners;
+
+namespace FS.Data.Models.Items
+{
+    public interface IItem : IModel<string>
+    {
+        public string Name { get; set; }
+
+        public float? MinimumToBuy { get; set; }
+
+        public DateTime? Expiration { get; set; }
+
+        public int MessuremantId { get; }
+
+        public IMessurement Messuremant { get; set; }
+
+        public int? PackagingId { get; }
+
+        public IPackeging? Packaging { get; set; }
+
+        public int CategoryId { get; }
+
+        public ICategory Category { get; set; }
+
+        public IEnumerable<IPartner> Suppliers { get; set; }
+    }
+}

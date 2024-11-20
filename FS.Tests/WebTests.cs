@@ -1,3 +1,5 @@
+using Projects;
+
 namespace FS.Tests;
 
 public class WebTests
@@ -6,7 +8,7 @@ public class WebTests
     public async Task GetWebResourceRootReturnsOkStatusCode()
     {
         // Arrange
-        var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Projects.FS_AppHost>();
+        var appHost = await DistributedApplicationTestingBuilder.CreateAsync<FS_AppHost>();
         appHost.Services.ConfigureHttpClientDefaults(clientBuilder =>
         {
             clientBuilder.AddStandardResilienceHandler();

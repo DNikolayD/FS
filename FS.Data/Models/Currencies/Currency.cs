@@ -1,13 +1,13 @@
 ﻿using FS.Data.Attributes;
 using FS.Data.Base;
 
-namespace FS.Data.Models.Members
+namespace FS.Data.Models.Currencies
 {
-    public class Member(string name = "") : Model<int>, IMember
+    public class Currency(string name = "BGN") : Model<int>, ICurrency
     {
         private string _name = name;
 
-        [ShortTextValidation(nameof(Member), nameof(Name))]
+        [ShortTextValidation(nameof(Currency), nameof(Name))]
         public string Name { get => _name; set => _name = value; }
     }
 }
