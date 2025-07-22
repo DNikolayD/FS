@@ -1,7 +1,19 @@
-﻿using static FS.Data.Instanciator;
+﻿using static FS.Reusable.Instanciator;
 
 namespace FS.Data.Base
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="isDefault"></param>
+    /// <param name="createTime"></param>
+    /// <param name="isEditable"></param>
+    /// <param name="isModified"></param>
+    /// <param name="updateTime"></param>
+    /// <param name="isDeletable"></param>
+    /// <param name="isDeleted"></param>
+    /// <param name="deleteTime"></param>
+    /// <typeparam name="T"></typeparam>
     public class Model<T>(bool isDefault = false,
         DateTime createTime = default, 
         bool isEditable = false, 
@@ -11,43 +23,57 @@ namespace FS.Data.Base
         bool? isDeleted = null, 
         DateTime? deleteTime = null) : IModel<T>
     {
-        private bool _isDefault = isDefault;
-
-        private DateTime _createTime = createTime;
-
-        private bool _isEditable = isEditable;
-
-        private bool _isModified = isModified;
-
-        private DateTime? _updateTime = updateTime;
-
-        private bool _isDeletable = isDeletable;
-
-        private bool? _isDeleted = isDeleted;
-
-        private DateTime? _deleteTime = deleteTime;
-
-        public Model(): this(false, default, false, false, null, false, null, null)
+        /// <summary>
+        /// 
+        /// </summary>
+        protected Model(): this(false)
             { 
             this.Id = InstantiateId<T>();
             }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public required T Id { get; set; }
 
-        public bool IsDefault { get => _isDefault; set => _isDefault = value; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsDefault { get; set; } = isDefault;
 
-        public DateTime CreateTime { get => _createTime; set => _createTime = value; }
-        
-        public bool IsEditable { get => _isEditable; set => _isEditable = value; }
-        
-        public bool IsModified { get => _isModified; set => _isModified = value; }
-        
-        public DateTime? UpdateTime { get => _updateTime; set => _updateTime = value; }
-        
-        public bool IsDeletable { get => _isDeletable; set => _isDeletable = value; }
-        
-        public bool? IsDeleted { get => _isDeleted; set => _isDeleted = value; }
-        
-        public DateTime? DeleteTime { get => _deleteTime; set => _deleteTime = value; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime CreateTime { get; set; } = createTime;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsEditable { get; set; } = isEditable;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsModified { get; set; } = isModified;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateTime { get; set; } = updateTime;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsDeletable { get; set; } = isDeletable;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool? IsDeleted { get; set; } = isDeleted;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? DeleteTime { get; set; } = deleteTime;
     }
 }

@@ -1,8 +1,8 @@
 ﻿using FS.Data.Base;
 
-namespace FS.Data.Models.Messurements
+namespace FS.Data.Models.Measurements
 {
-    public interface IMessurement : IModel<int>
+    public interface IMeasurement : IModel<int>
     {
         public string ShortName { get; set; }
 

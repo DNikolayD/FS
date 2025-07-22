@@ -14,6 +14,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FS.Tests", "FS.Tests\FS.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FS.Data", "FS.Data\FS.Data.csproj", "{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.Reusable", "FS.Reusable\FS.Reusable.csproj", "{94F820D8-69BD-4F22-98F1-3ADF6AE08F85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.FinansialServices", "FS.FinansialServices\FS.FinansialServices.csproj", "{B8648DD2-D2E2-4BB2-A09C-C865213609D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,14 @@ Global
 		{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC1E56A-284D-48AE-8B75-D8ACBDDCD440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F820D8-69BD-4F22-98F1-3ADF6AE08F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F820D8-69BD-4F22-98F1-3ADF6AE08F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F820D8-69BD-4F22-98F1-3ADF6AE08F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F820D8-69BD-4F22-98F1-3ADF6AE08F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8648DD2-D2E2-4BB2-A09C-C865213609D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8648DD2-D2E2-4BB2-A09C-C865213609D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8648DD2-D2E2-4BB2-A09C-C865213609D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8648DD2-D2E2-4BB2-A09C-C865213609D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

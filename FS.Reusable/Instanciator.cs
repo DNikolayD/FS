@@ -1,4 +1,4 @@
-﻿namespace FS.Data
+﻿namespace FS.Reusable
 {
     public static class Instanciator
     {
@@ -8,10 +8,8 @@
             {
                 return (T)(object)Guid.NewGuid().ToString();
             }
-            else
-            {
-                return Activator.CreateInstance<T>();
-            }
+
+            return Activator.CreateInstance<T>();
         }
     }
 }

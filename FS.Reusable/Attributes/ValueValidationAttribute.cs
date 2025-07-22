@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using static FS.Data.Constants;
+using static FS.Reusable.Constants;
 
-namespace FS.Data.Attributes
+namespace FS.Reusable.Attributes
 {
-    sealed public class ValueValidationAttribute( string className, string propertyName, float minValue = MIN_VALUE, float maxValue = MAX_VALUE) : ValidationAttribute
+    sealed public class ValueValidationAttribute(string className, string propertyName, float minValue = MIN_VALUE, float maxValue = MAX_VALUE) : ValidationAttribute
     {
         private readonly float _minValue = minValue;
 

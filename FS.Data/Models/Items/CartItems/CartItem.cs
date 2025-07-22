@@ -1,4 +1,4 @@
-﻿using FS.Data.Attributes;
+﻿using FS.Reusable.Attributes;
 
 namespace FS.Data.Models.Items.CartItems
 {

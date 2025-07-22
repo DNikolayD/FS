@@ -1,7 +1,8 @@
-﻿using FS.Data.Attributes;
+﻿using FS.Reusable.Attributes;
 using FS.Data.Base;
 using FS.Data.Models.Categories;
-using FS.Data.Models.Messurements;
+using FS.Data.Models.Meassurements;
+using FS.Data.Models.Measurements;
 using FS.Data.Models.Packegings;
 using FS.Data.Models.Partners;
 
@@ -20,7 +21,7 @@ namespace FS.Data.Models.Items
 
         public int MessuremantId => Messuremant.Id;
 
-        public required IMessurement Messuremant { get; set; }
+        public required IMeasurement Messuremant { get; set; }
 
         public int? PackagingId => Packaging?.Id;
 

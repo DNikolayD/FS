@@ -1,4 +1,4 @@
-﻿using FS.Data.Attributes;
+﻿using FS.Reusable.Attributes;
 using FS.Data.Models.Members;
 
 namespace FS.Data.Models.Items.TransactionItems

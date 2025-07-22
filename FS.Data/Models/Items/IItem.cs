@@ -1,6 +1,7 @@
 ﻿using FS.Data.Base;
 using FS.Data.Models.Categories;
-using FS.Data.Models.Messurements;
+using FS.Data.Models.Meassurements;
+using FS.Data.Models.Measurements;
 using FS.Data.Models.Packegings;
 using FS.Data.Models.Partners;
 
@@ -16,7 +17,7 @@ namespace FS.Data.Models.Items
 
         public int MessuremantId { get; }
 
-        public IMessurement Messuremant { get; set; }
+        public IMeasurement Messuremant { get; set; }
 
         public int? PackagingId { get; }
 

@@ -1,4 +1,4 @@
-﻿using FS.Data.Attributes;
+﻿using FS.Reusable.Attributes;
 using FS.Data.Base;
 using FS.Data.Models.Locations;
 
@@ -8,8 +8,7 @@ namespace FS.Data.Models.Partners
     {
         private string _name = name;
 
-        [ShortTextValidation(nameof(Partner), nameof(
-            Name))]
+        [ShortTextValidation(nameof(Partner), nameof(Name))]
         public string Name { get => _name; set => _name = value; }
 
         public int LocationId => Location.Id;

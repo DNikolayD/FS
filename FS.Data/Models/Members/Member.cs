@@ -1,4 +1,4 @@
-﻿using FS.Data.Attributes;
+﻿using FS.Reusable.Attributes;
 using FS.Data.Base;
 
 namespace FS.Data.Models.Members

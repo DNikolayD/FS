@@ -1,20 +1,5 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IModel.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   Defines the IModel type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace FS.Data.Base
+﻿namespace FS.FinansialServices.DTOs.Base
 {
-
-    /// <summary>
-    /// The Model interface.
-    /// </summary>
-    /// <typeparam name="T">
-    /// </typeparam>
     public interface IModel<T>
     {
         /// <summary>

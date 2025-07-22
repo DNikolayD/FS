@@ -11,7 +11,7 @@ using FS.Data.Models.Items.InventoryItems;
 using FS.Data.Models.Items.TransactionItems;
 using FS.Data.Models.Locations;
 using FS.Data.Models.Members;
-using FS.Data.Models.Messurements;
+using FS.Data.Models.Meassurements;
 using FS.Data.Models.Packegings;
 using FS.Data.Models.Partners;
 using FS.Data.Models.Roles;
@@ -53,7 +53,7 @@ public class FSDatabaseContext() : IdentityDbContext<User, Role, string>
 
     public required DbSet<Member> Members { get; set; }
 
-    public required DbSet<Messurement> Messurements { get; set; }
+    public required DbSet<Measurement> Messurements { get; set; }
 
     public required DbSet<Packeging> Packegings { get; set; }
 

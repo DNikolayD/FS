@@ -6,14 +6,24 @@ namespace FS.Data.Models.Carts
 {
     public class Cart(List<ICartItem> cartItems) : Model<int>, ICart
     {
-        private IEnumerable<ICartItem> _cartItems = cartItems;
+        /// <summary>
+        /// 
+        /// </summary>
+        public float TotalPrice => this.CartItems.Sum(x => x.TotalPrice);
 
-        public float TotalPrice => _cartItems.Sum(x => x.TotalPrice);
-
-        public int PartnerId => Partner.Id;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int PartnerId => this.Partner.Id;
         
+        /// <summary>
+        /// 
+        /// </summary>
         public required IPartner Partner { get; set; }
 
-        public required IEnumerable<ICartItem> CartItems { get => _cartItems; set => _cartItems = value; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public required IEnumerable<ICartItem> CartItems { get; set; } = cartItems;
     }
 }

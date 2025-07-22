@@ -1,29 +1,30 @@
 using Projects;
 
-namespace FS.Tests;
-
-public class WebTests
+namespace FS.Tests
 {
-    [Test]
-    public async Task GetWebResourceRootReturnsOkStatusCode()
+    public class WebTests
     {
-        // Arrange
-        var appHost = await DistributedApplicationTestingBuilder.CreateAsync<FS_AppHost>();
-        appHost.Services.ConfigureHttpClientDefaults(clientBuilder =>
+        [Test]
+        public async Task GetWebResourceRootReturnsOkStatusCode()
         {
-            clientBuilder.AddStandardResilienceHandler();
-        });
+            // Arrange
+            var appHost = await DistributedApplicationTestingBuilder.CreateAsync<FS_AppHost>();
+            appHost.Services.ConfigureHttpClientDefaults(clientBuilder =>
+                {
+                    clientBuilder.AddStandardResilienceHandler();
+                });
 
-        await using var app = await appHost.BuildAsync();
-        var resourceNotificationService = app.Services.GetRequiredService<ResourceNotificationService>();
-        await app.StartAsync();
+            await using var app = await appHost.BuildAsync();
+            var resourceNotificationService = app.Services.GetRequiredService<ResourceNotificationService>();
+            await app.StartAsync();
 
-        // Act
-        var httpClient = app.CreateHttpClient("webfrontend");
-        await resourceNotificationService.WaitForResourceAsync("webfrontend", KnownResourceStates.Running).WaitAsync(TimeSpan.FromSeconds(30));
-        var response = await httpClient.GetAsync("/");
+            // Act
+            var httpClient = app.CreateHttpClient("webfrontend");
+            await resourceNotificationService.WaitForResourceAsync("webfrontend", KnownResourceStates.Running).WaitAsync(TimeSpan.FromSeconds(30));
+            var response = await httpClient.GetAsync("/");
 
-        // Assert
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            // Assert
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+        }
     }
 }
