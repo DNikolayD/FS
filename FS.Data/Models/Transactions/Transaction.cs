@@ -1,9 +1,9 @@
-﻿using FS.Reusable.Attributes;
-using FS.Data.Base;
+﻿using FS.Data.Base;
 using FS.Data.Models.Currencies;
 using FS.Data.Models.Items.TransactionItems;
 using FS.Data.Models.Partners;
 using FS.Data.Models.TransactionTypes;
+using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
 
 namespace FS.Data.Models.Transactions
 {

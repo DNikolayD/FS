@@ -31,6 +31,8 @@ namespace FS.Reusable
 
         public const float MAX_VALUE = 999999.99f;
 
-        public const string ERROR_MESSAGE = "${0}.${1} must be between ${2} and ${3} characters";
+        public const string LENGTH_ERROR_MESSAGE = "The length of the ${0} in the ${1} must be between ${2} and ${3} characters";
+
+        public const string VALUE_ERROR_MESSAGE = "The value of the ${0} in the ${1} must be between ${2} and ${3}";
     }
 }

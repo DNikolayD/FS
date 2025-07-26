@@ -1,5 +1,6 @@
 ﻿using FS.Reusable.Attributes;
 using FS.Data.Base;
+using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
 
 namespace FS.Data.Models.Categories
 {
@@ -25,7 +26,7 @@ namespace FS.Data.Models.Categories
         /// <summary>
         /// 
         /// </summary>
-        [ShortTextValidation(nameof(Category), nameof(Name))]
+        [LengthValidation(nameof(Category), nameof(Name))]
         public string Name { get; set; } = name;
 
         /// <summary>

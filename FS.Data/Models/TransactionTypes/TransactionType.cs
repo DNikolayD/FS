@@ -1,5 +1,5 @@
-﻿using FS.Reusable.Attributes;
-using FS.Data.Base;
+﻿using FS.Data.Base;
+using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
 
 namespace FS.Data.Models.TransactionTypes
 {
@@ -7,7 +7,7 @@ namespace FS.Data.Models.TransactionTypes
     {
         private string _name = name;
 
-        [ShortTextValidation(nameof(TransactionType), nameof(Name))]
+        [LengthValidation(nameof(TransactionType), nameof(Name))]
         public string Name { get => _name; set => _name = value; }
     }
 }

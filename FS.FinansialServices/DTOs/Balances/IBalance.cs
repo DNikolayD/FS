@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FS.FinansialServices.DTOs.Base;
-using FS.FinansialServices.DTOs.Currencies;
+using FS.FinancialServices.DTOs.Currencies;
 
 namespace FS.FinansialServices.DTOs.Balances
 {

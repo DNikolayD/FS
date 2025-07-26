@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FS.Data", "FS.Data\FS.Data.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.Reusable", "FS.Reusable\FS.Reusable.csproj", "{94F820D8-69BD-4F22-98F1-3ADF6AE08F85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.FinansialServices", "FS.FinansialServices\FS.FinansialServices.csproj", "{B8648DD2-D2E2-4BB2-A09C-C865213609D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.FinancialServices", "FS.FinansialServices\FS.FinancialServices.csproj", "{B8648DD2-D2E2-4BB2-A09C-C865213609D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 ﻿using FS.FinansialServices.DTOs.Base;
 
-namespace FS.FinansialServices.DTOs.Currencies
+namespace FS.FinancialServices.DTOs.Currencies
 {
     public interface ICurrency : IModel<int>
     {

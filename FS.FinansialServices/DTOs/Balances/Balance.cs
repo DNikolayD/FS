@@ -1,5 +1,5 @@
 ﻿using FS.FinansialServices.DTOs.Base;
-using FS.FinansialServices.DTOs.Currencies;
+using FS.FinancialServices.DTOs.Currencies;
 
 namespace FS.FinansialServices.DTOs.Balances
 {

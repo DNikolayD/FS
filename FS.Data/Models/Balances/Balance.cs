@@ -1,6 +1,7 @@
 ﻿using FS.Reusable.Attributes;
 using FS.Data.Base;
 using FS.Data.Models.Currencies;
+using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
 
 namespace FS.Data.Models.Balances
 {
@@ -19,7 +20,7 @@ namespace FS.Data.Models.Balances
         /// <summary>
         /// 
         /// </summary>
-        public int CurrencyId  => this.Currency.Id; 
+        public int CurrencyId  => Currency.Id; 
         
         /// <summary>
         /// 

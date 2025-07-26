@@ -1,5 +1,6 @@
 ﻿using FS.Reusable.Attributes;
 using FS.Data.Base;
+using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
 
 namespace FS.Data.Models.Countries
 {
@@ -7,7 +8,7 @@ namespace FS.Data.Models.Countries
     {
         private string _name = name;
 
-        [ShortTextValidation(nameof(Country), nameof(Name))]
+        [LengthValidation(nameof(Country), nameof(Name))]
         public string Name { get => _name; set => _name = value; }
 
     }
