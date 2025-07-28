@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-namespace FS.Data.Models.Currencies
+﻿namespace FS.Data.Models.Currencies
 {
     public interface ICurrency : IModel<int>
     {

@@ -1,5 +1,4 @@
-﻿using FS.Data.Base;
-using FS.Data.Repositories;
+﻿using FS.Data.Repositories;
 
 namespace FS.Data.UOWs
 {

@@ -1,9 +1,7 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.Categories;
+﻿using FS.Data.Models.Categories;
 using FS.Data.Models.Measurements;
 using FS.Data.Models.Packegings;
 using FS.Data.Models.Partners;
-using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
 
 namespace FS.Data.Models.Items
 {
@@ -11,7 +9,7 @@ namespace FS.Data.Models.Items
     {
         private string _name = name;
 
-        [LengthValidation(nameof(Item), nameof(Name))]
+        [ShortTextLengthValidation(nameof(Item), nameof(Name))]
         public string Name { get => _name; set => _name = value; }
 
         public float? MinimumToBuy { get; set; }

@@ -1,6 +1,4 @@
 ﻿using System.Transactions;
-
-using FS.Data.Base;
 using FS.Data.Models.Balances;
 using FS.Data.Models.Carts;
 using FS.Data.Models.Categories;

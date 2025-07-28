@@ -1,5 +1,4 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.Locations;
+﻿using FS.Data.Models.Locations;
 
 namespace FS.Data.Models.Partners
 {

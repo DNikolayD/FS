@@ -11,7 +11,6 @@
 
 namespace FS.Data.Models.Carts
 {
-    using FS.Data.Base;
     using FS.Data.Models.Items.CartItems;
     using FS.Data.Models.Partners;
 

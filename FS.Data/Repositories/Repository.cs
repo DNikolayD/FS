@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace FS.Data.Repositories
 {

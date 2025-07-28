@@ -1,46 +1,23 @@
-﻿using FS.Reusable.Attributes;
-using FS.Data.Base;
-using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
+﻿using FS.Reusable.Attributes.ErrorHandlingAttributes;
 
-namespace FS.Data.Models.Categories
+namespace FS.Data.Models.Categories;
+
+public class Category(string name = "") : Model<int>, ICategory
 {
-    public class Category(string name = "") : Model<int>, ICategory
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public IEnumerable<ICategory>? Children { get; set; }
+    public IEnumerable<ICategory>? Children { get; set; }
 
-        public bool IsLeaf
-        {
-            get => Children == null || !Children.Any();
-            set => SetIsLeaf();
-        }
+    public bool IsLeaf => Children == null || !Children.Any();
 
-        public bool IsRoot
-        { 
-            get => Parent == null; 
-            set => SetIsRoot();
-        }
+    public bool IsRoot => Parent == null;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        [LengthValidation(nameof(Category), nameof(Name))]
-        public string Name { get; set; } = name;
+    [ShortTextLengthValidation(nameof(Category), nameof(Name))]
+    public string Name { get; set; } = name;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public ICategory? Parent { get; set; }
+    [LongTextLengthValidation(nameof(Category), nameof(Description))]
+    public string Description { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public int? ParentId => this.Parent!.Id;
+    public ICategory? Parent { get; set; }
 
-        private void SetIsRoot() => IsRoot = Parent == null;
+    public int? ParentId => Parent!.Id;
 
-        private void SetIsLeaf() => IsLeaf = !(Children == null && Children.Any());
-    }
 }

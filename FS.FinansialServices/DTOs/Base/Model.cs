@@ -1,4 +1,4 @@
-﻿using static FS.Reusable.Instanciator;
+﻿using static FS.Reusable.Instantiator;
 
 namespace FS.FinansialServices.DTOs.Base
 {

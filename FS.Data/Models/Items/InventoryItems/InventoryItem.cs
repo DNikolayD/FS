@@ -1,6 +1,4 @@
-﻿using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
-
-namespace FS.Data.Models.Items.InventoryItems
+﻿namespace FS.Data.Models.Items.InventoryItems
 {
     public class InventoryItem(int quantity = 0) : Item, IInventoryItem
     {

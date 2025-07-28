@@ -1,5 +1,4 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.FinanceTypes;
+﻿using FS.Data.Models.FinanceTypes;
 
 namespace FS.Data.Models.FinanceInstitutions
 {

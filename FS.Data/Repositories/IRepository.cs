@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-namespace FS.Data.Repositories
+﻿namespace FS.Data.Repositories
 {
     public interface IRepository<TModel, T> where TModel : Model<T>
     {

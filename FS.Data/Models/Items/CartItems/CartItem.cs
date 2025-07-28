@@ -1,6 +1,4 @@
-﻿using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
-
-namespace FS.Data.Models.Items.CartItems
+﻿namespace FS.Data.Models.Items.CartItems
 {
     public class CartItem(int quantity = 1, float price = 0) : Item, ICartItem
     {

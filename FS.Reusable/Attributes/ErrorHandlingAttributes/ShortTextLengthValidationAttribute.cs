@@ -3,7 +3,7 @@
 using static FS.Reusable.Constants;
 
 [AttributeUsage(AttributeTargets.Property)]
-public sealed class LengthValidationAttribute(string className, string propertyName, int minLength = MIN_SHORT_TEXT_LENGTH, int maxLength = MAX_SHORT_TEXT_LENGTH) : ValidationAttribute
+public sealed class ShortTextLengthValidationAttribute(string className, string propertyName, int minLength = MIN_SHORT_TEXT_LENGTH, int maxLength = MAX_SHORT_TEXT_LENGTH) : ValidationAttribute
     {
         private string _errorMessage = "";
 

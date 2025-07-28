@@ -1,6 +1,5 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.Countries;
-using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
+﻿using FS.Data.Models.Countries;
+using FS.Reusable.Attributes.ErrorHandlingAttributes;
 
 namespace FS.Data.Models.Locations
 {
@@ -8,7 +7,7 @@ namespace FS.Data.Models.Locations
     {
         private string _address = address;
 
-        [LengthValidation(nameof(Location), nameof(Address))]
+        [LongTextLengthValidation(nameof(Location), nameof(Address))]
         public string Address { get => _address; set => _address = value; }
         
         public int CountryId => Country.Id;

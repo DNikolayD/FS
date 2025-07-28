@@ -1,5 +1,4 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.Categories;
+﻿using FS.Data.Models.Categories;
 using FS.Data.Models.Measurements;
 
 namespace FS.Data.Models.Products

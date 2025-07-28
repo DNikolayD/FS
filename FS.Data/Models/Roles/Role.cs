@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace FS.Data.Models.Roles
 {

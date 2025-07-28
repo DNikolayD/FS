@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-namespace FS.Data.Models.Measurements
+﻿namespace FS.Data.Models.Measurements
 {
     public interface IMeasurement : IModel<int>
     {

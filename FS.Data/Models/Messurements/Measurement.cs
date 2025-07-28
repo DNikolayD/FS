@@ -1,6 +1,5 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.Measurements;
-using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
+﻿using FS.Data.Models.Measurements;
+using FS.Reusable.Attributes.ErrorHandlingAttributes;
 
 namespace FS.Data.Models.Meassurements
 {
@@ -10,10 +9,10 @@ namespace FS.Data.Models.Meassurements
 
         private string _longName = longName;
 
-        [LengthValidation(nameof(Measurement), nameof(ShortName))]
+        [ShortTextLengthValidation(nameof(Measurement), nameof(ShortName))]
         public string ShortName { get => _shortName; set => _shortName = value; }
         
-        [LengthValidation(nameof(Measurement), nameof(LongName))]
+        [LongTextLengthValidation(nameof(Measurement), nameof(LongName))]
         public string LongName { get => _longName; set => _longName = value; }
     }
 }

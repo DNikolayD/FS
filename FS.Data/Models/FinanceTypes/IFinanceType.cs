@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-namespace FS.Data.Models.FinanceTypes
+﻿namespace FS.Data.Models.FinanceTypes
 {
     public interface IFinanceType : IModel<int>
     {

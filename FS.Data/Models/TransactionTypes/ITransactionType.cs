@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-namespace FS.Data.Models.TransactionTypes
+﻿namespace FS.Data.Models.TransactionTypes
 {
     public interface ITransactionType : IModel<int>
     {

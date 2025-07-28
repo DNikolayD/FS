@@ -1,5 +1,4 @@
 ﻿using FS.Data.Models.Members;
-using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
 
 namespace FS.Data.Models.Items.TransactionItems
 {

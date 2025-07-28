@@ -1,23 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IModel.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   Defines the IModel type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace FS.Data.Base
+﻿namespace FS.Data.Base
 {
-
-    /// <summary>
-    /// The Model interface.
-    /// </summary>
-    /// <typeparam name="T">
-    /// </typeparam>
-    public interface IModel<T>
+    public interface IModel<out T>
     {
-        public T Id { get; set; }
+        public T Id { get; }
 
         public bool IsDefault { get; set; }
 
@@ -34,6 +19,5 @@ namespace FS.Data.Base
         public bool? IsDeleted { get; set; }
 
         public DateTime? DeleteTime { get; set; }
-
     }
 }

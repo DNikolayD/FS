@@ -9,7 +9,6 @@
 
 namespace FS.Data.Models.Balances
 {
-    using Base;
     using Currencies;
 
     /// <summary>

@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-
-namespace FS.Data.Models.Countries
+﻿namespace FS.Data.Models.Countries
 {
     public interface ICountry : IModel<int>
     {

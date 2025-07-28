@@ -1,5 +1,4 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.Countries;
+﻿using FS.Data.Models.Countries;
 
 namespace FS.Data.Models.Locations
 {

@@ -1,7 +1,4 @@
-﻿using FS.Data.Base;
-using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
-
-namespace FS.Data.Models.Packegings
+﻿namespace FS.Data.Models.Packegings
 {
     public class Packeging(decimal value = 0) : Model<int>, IPackeging
     {

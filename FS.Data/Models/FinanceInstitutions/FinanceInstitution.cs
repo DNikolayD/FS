@@ -1,6 +1,4 @@
-﻿using FS.Data.Base;
-using FS.Data.Models.FinanceTypes;
-using FS.Reusable.Attributes.ErrorHandlingAtrtibutes;
+﻿using FS.Data.Models.FinanceTypes;
 
 namespace FS.Data.Models.FinanceInstitutions
 {
@@ -8,7 +6,7 @@ namespace FS.Data.Models.FinanceInstitutions
     {
         private string _name = name;
 
-        [LengthValidation(nameof(FinanceInstitution), nameof(Name))]
+        [ShortTextLengthValidation(nameof(FinanceInstitution), nameof(Name))]
         public string Name { get => _name; set => _name = value; }
         
         public required IEnumerable<IFinanceType> FinanceTypes { get; set; }
