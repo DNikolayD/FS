@@ -1,7 +1,12 @@
-﻿namespace FS.Data.Models.Countries
+﻿namespace FS.Data.Models.Countries;
+
+/// <summary>
+/// Interface for Country. Used to specify the location of a Partner.
+/// </summary>
+public interface ICountry : IModel<int>
 {
-    public interface ICountry : IModel<int>
-    {
-        string Name { get; set; }
-    }
+    /// <summary>
+    /// Name of the Country.
+    /// </summary>
+    string Name { get; set; }
 }

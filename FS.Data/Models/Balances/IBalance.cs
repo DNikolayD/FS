@@ -1,34 +1,24 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IBalance.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   Defines the IBalance type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
+﻿namespace FS.Data.Models.Balances;
 
-namespace FS.Data.Models.Balances
+using Currencies;
+
+/// <summary>
+/// Object that represents the monetary balance of the user, in a bank account or in cash.
+/// </summary>
+public interface IBalance : IModel<int>
 {
-    using Currencies;
+    /// <summary>
+    /// The amount of the balance in the currency of the balance. Restricted by the minimum and maximum allowed values defined in Reusable.Constants.
+    /// </summary>
+    public decimal Value { get; set; }
 
     /// <summary>
-    /// The Balance interface.
+    /// Holds the id of the currency of the balance.
     /// </summary>
-    public interface IBalance : IModel<int>
-    {
-        /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        public decimal Value { get; set; }
+    public int CurrencyId { get; }
 
-        /// <summary>
-        /// Gets the currency id.
-        /// </summary>
-        public int CurrencyId { get; }
-
-        /// <summary>
-        /// Gets or sets the currency.
-        /// </summary>
-        public ICurrency Currency { get; set; }
-    }
+    /// <summary>
+    /// The currency of the balance. Currency is a class defined in the Currencies namespace.
+    /// </summary>
+    public ICurrency Currency { get; set; }
 }

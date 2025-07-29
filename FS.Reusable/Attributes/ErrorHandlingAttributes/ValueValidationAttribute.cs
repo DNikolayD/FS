@@ -2,7 +2,7 @@
 
 using static FS.Reusable.Constants;
 
-namespace FS.Reusable.Attributes.ErrorHandlingAtrtibutes
+namespace FS.Reusable.Attributes.ErrorHandlingAttributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class ValueValidationAttribute(string className, string propertyName, float minValue = MIN_VALUE, float maxValue = MAX_VALUE) : ValidationAttribute

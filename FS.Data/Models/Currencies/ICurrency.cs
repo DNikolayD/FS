@@ -1,7 +1,12 @@
-﻿namespace FS.Data.Models.Currencies
+﻿namespace FS.Data.Models.Currencies;
+
+/// <summary>
+/// Interface for currencies in the balances and transactions of the user
+/// </summary>
+public interface ICurrency : IModel<int>
 {
-    public interface ICurrency : IModel<int>
-    {
-        public string Name { get; set; }
-    }
+    /// <summary>
+    /// Name of the currency
+    /// </summary>
+    public string Name { get; set; }
 }

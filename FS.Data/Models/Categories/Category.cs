@@ -1,8 +1,9 @@
-﻿using FS.Reusable.Attributes.ErrorHandlingAttributes;
-
+﻿// ReSharper disable MissingXmlDoc
+// ReSharper disable EntityFramework.ModelValidation.UnlimitedStringLength
 namespace FS.Data.Models.Categories;
 
-public class Category(string name = "") : Model<int>, ICategory
+
+public class Category(string name = "", string description = "") : Model<int>, ICategory
 {
     public IEnumerable<ICategory>? Children { get; set; }
 
@@ -14,7 +15,7 @@ public class Category(string name = "") : Model<int>, ICategory
     public string Name { get; set; } = name;
 
     [LongTextLengthValidation(nameof(Category), nameof(Description))]
-    public string Description { get; set; }
+    public string Description { get; set; } = description;
 
     public ICategory? Parent { get; set; }
 

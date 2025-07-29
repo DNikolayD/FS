@@ -1,42 +1,30 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ICart.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   Defines the ICart type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
+﻿namespace FS.Data.Models.Carts;
 
+using Items.CartItems;
+using Partners;
 
-
-namespace FS.Data.Models.Carts
+/// <summary>
+/// Represents a list of items that the user wants to buy
+/// </summary>
+public interface ICart : IModel<int>
 {
-    using FS.Data.Models.Items.CartItems;
-    using FS.Data.Models.Partners;
+    /// <summary>
+    /// Returns the total price of all the items in the cart.
+    /// </summary>
+    public float TotalPrice { get; }
 
     /// <summary>
-    /// The Cart interface.
+    /// Holds the id of the partner.
     /// </summary>
-    public interface ICart : IModel<int>
-    {
-        /// <summary>
-        /// Gets the total price.
-        /// </summary>
-        public float TotalPrice { get; }
+    public int PartnerId { get; }
 
-        /// <summary>
-        /// Gets the partner id.
-        /// </summary>
-        public int PartnerId { get; }
+    /// <summary>
+    /// The partner from whom the items in the cart can or will be bought.
+    /// </summary>
+    public IPartner Partner { get; set; }
 
-        /// <summary>
-        /// Gets or sets the partner.
-        /// </summary>
-        public IPartner Partner { get; set; }
-
-        /// <summary>
-        /// Gets or sets the cart items.
-        /// </summary>
-        public IEnumerable<ICartItem> CartItems { get; set; }
-    }
+    /// <summary>
+    /// The items in the cart
+    /// </summary>
+    public IEnumerable<ICartItem> CartItems { get; set; }
 }

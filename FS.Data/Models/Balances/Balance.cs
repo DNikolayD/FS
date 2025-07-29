@@ -1,28 +1,15 @@
-﻿using FS.Reusable.Attributes;
-using FS.Data.Models.Currencies;
+﻿// ReSharper disable MissingXmlDoc
 
-namespace FS.Data.Models.Balances
+namespace FS.Data.Models.Balances;
+
+using Currencies;
+
+public class Balance(ICurrency currency, decimal value = 0) : Model<int>, IBalance
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="value"></param>
-    public class Balance(decimal value = 0) : Model<int>, IBalance
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        [ValueValidation(nameof(Balance), nameof(Value))]
-        public decimal Value { get; set; } = value;
+    [ValueValidation(nameof(Balance), nameof(Value))]
+    public decimal Value { get; set; } = value;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public int CurrencyId  => Currency.Id; 
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public required ICurrency Currency { get; set; }
-    }
+    public int CurrencyId  => Currency.Id; 
+    
+    public required ICurrency Currency { get; set; } = currency;
 }
