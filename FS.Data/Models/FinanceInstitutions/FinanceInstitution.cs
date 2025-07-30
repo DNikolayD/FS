@@ -1,14 +1,13 @@
-﻿using FS.Data.Models.FinanceTypes;
+﻿// ReSharper disable MissingXmlDoc
+// ReSharper disable EntityFramework.ModelValidation.UnlimitedStringLength
+namespace FS.Data.Models.FinanceInstitutions;
 
-namespace FS.Data.Models.FinanceInstitutions
+using FinanceTypes;
+
+public class FinanceInstitution(string name = "") : Model<int>, IFinanceInstitution
 {
-    public class FinanceInstitution(string name = "") : Model<int>, IFinanceInstitution
-    {
-        private string _name = name;
+    [ShortTextLengthValidation(nameof(FinanceInstitution), nameof(Name))]
+    public string Name { get; set; } = name;
 
-        [ShortTextLengthValidation(nameof(FinanceInstitution), nameof(Name))]
-        public string Name { get => _name; set => _name = value; }
-        
-        public required IEnumerable<IFinanceType> FinanceTypes { get; set; }
-    }
+    public required IEnumerable<IFinanceType> FinanceTypes { get; set; }
 }

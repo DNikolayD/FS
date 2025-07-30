@@ -1,4 +1,5 @@
-﻿namespace FS.Data.Models.Currencies
+﻿// ReSharper disable MissingXmlDoc
+namespace FS.Data.Models.Currencies
 {
     public class CurrencyConversion(ICurrency fromCurrency, ICurrency toCurrency, decimal conversionRate) : Model<int>, ICurrencyConversion
     {
