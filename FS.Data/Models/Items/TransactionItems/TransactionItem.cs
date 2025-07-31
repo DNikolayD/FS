@@ -1,8 +1,13 @@
-﻿using FS.Data.Models.Members;
+﻿using System.Collections;
+using FS.Data.Models.Categories;
+using FS.Data.Models.Measurements;
+using FS.Data.Models.Members;
+using FS.Data.Models.Packegings;
+using FS.Data.Models.Partners;
 
 namespace FS.Data.Models.Items.TransactionItems
 {
-    public class TransactionItem(int quantity = 0, float price = 0) : Item, ITransactionItem
+    public class TransactionItem(IEnumerable<IPartner> suppliers, IPackaging packaging, ICategory category, IMeasurement measurement, DateTime? expiration, float? minimumToBuy, string? name = "", int quantity = 0, float price = 0) : Item(suppliers, packaging, category, measurement, expiration, minimumToBuy, name ?? ""), ITransactionItem
     {
         private int _quantity = quantity;
 

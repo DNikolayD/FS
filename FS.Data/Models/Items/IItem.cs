@@ -14,13 +14,13 @@ namespace FS.Data.Models.Items
 
         public DateTime? Expiration { get; set; }
 
-        public int MessuremantId { get; }
+        public int MeasurementId { get; }
 
-        public IMeasurement Messuremant { get; set; }
+        public IMeasurement Measurement { get; set; }
 
         public int? PackagingId { get; }
 
-        public IPackeging? Packaging { get; set; }
+        public IPackaging? Packaging { get; set; }
 
         public int CategoryId { get; }
 

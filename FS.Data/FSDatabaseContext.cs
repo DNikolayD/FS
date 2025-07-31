@@ -55,7 +55,7 @@ public class FSDatabaseContext() : IdentityDbContext<User, Role, string>
 
     public required DbSet<Measurement> Messurements { get; set; }
 
-    public required DbSet<Packeging> Packegings { get; set; }
+    public required DbSet<Packaging> Packegings { get; set; }
 
     public required DbSet<Partner> Partners { get; set; }
 

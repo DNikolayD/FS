@@ -1,17 +1,18 @@
-﻿namespace FS.Data.Models.Items.CartItems
+﻿using FS.Data.Models.Categories;
+using FS.Data.Models.Measurements;
+using FS.Data.Models.Packegings;
+using FS.Data.Models.Partners;
+
+namespace FS.Data.Models.Items.CartItems
 {
-    public class CartItem(int quantity = 1, float price = 0) : Item, ICartItem
+    public class CartItem(IEnumerable<IPartner> suppliers, IPackaging? packaging, ICategory category, IMeasurement measurement, DateTime? expiration, float? minimumToBuy, string name = "", int quantity = 1, float price = 0) : Item(suppliers: suppliers, packaging: packaging, category: category, measurement: measurement, expiration: expiration, minimumToBuy: minimumToBuy, name: name), ICartItem
     {
-        private int _quantity = quantity;
-
-        private float _price = price;
-
         [ValueValidation(nameof(CartItem), nameof(Quantity))]
-        public int Quantity { get => _quantity; set => _quantity = value; }
+        public int Quantity { get; set; } = quantity;
 
         [ValueValidation(nameof(CartItem), nameof(Price))]
-        public float Price { get => _price; set => _price = value; }
+        public float Price { get; set; } = price;
 
-        public float TotalPrice => _quantity * _price;
+        public float TotalPrice => Quantity * Price;
     }
 }

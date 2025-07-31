@@ -1,33 +1,30 @@
-﻿using FS.Data.Models.Categories;
-using FS.Data.Models.Measurements;
-using FS.Data.Models.Packegings;
-using FS.Data.Models.Partners;
+﻿namespace FS.Data.Models.Items;
 
-namespace FS.Data.Models.Items
+using Categories;
+using Measurements;
+using Packegings;
+using Partners;
+
+public abstract class Item(IEnumerable<IPartner> suppliers, IPackaging? packaging, ICategory category, IMeasurement measurement, DateTime? expiration, float? minimumToBuy = null, string name = "") : Model<string>, IItem
 {
-    public class Item(string name = "") : Model<string>, IItem
-    {
-        private string _name = name;
+    [ShortTextLengthValidation(nameof(Item), nameof(Name))]
+    public string Name { get; set; } = name;
 
-        [ShortTextLengthValidation(nameof(Item), nameof(Name))]
-        public string Name { get => _name; set => _name = value; }
+    public float? MinimumToBuy { get; set; } = minimumToBuy;
 
-        public float? MinimumToBuy { get; set; }
+    public DateTime? Expiration { get; set; } = expiration;
 
-        public DateTime? Expiration { get; set; }
+    public int MeasurementId => Measurement.Id;
 
-        public int MessuremantId => Messuremant.Id;
+    public required IMeasurement Measurement { get; set; } = measurement;
 
-        public required IMeasurement Messuremant { get; set; }
+    public int? PackagingId => Packaging?.Id;
 
-        public int? PackagingId => Packaging?.Id;
+    public IPackaging? Packaging { get; set; } = packaging;
 
-        public IPackeging? Packaging { get; set; }
+    public int CategoryId => Category.Id;
 
-        public int CategoryId => Category.Id;
+    public required ICategory Category { get; set; } = category;
 
-        public required ICategory Category { get; set; }
-
-        public required IEnumerable<IPartner> Suppliers { get; set; }
-    }
+    public required IEnumerable<IPartner> Suppliers { get; set; } = suppliers;
 }

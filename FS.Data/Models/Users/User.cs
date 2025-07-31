@@ -68,7 +68,7 @@ namespace FS.Data.Models.Users
 
         private IEnumerable<Measurement> _measurements = [];
 
-        private IEnumerable<Packeging> _packagings = [];
+        private IEnumerable<Packaging> _packagings = [];
 
         private IEnumerable<Partner> _partners = [];
 
@@ -120,7 +120,7 @@ namespace FS.Data.Models.Users
                
         public required IEnumerable<Measurement> Measurements { get => _measurements; set => _measurements = value; }
                
-        public required IEnumerable<Packeging> Packagings { get => _packagings; set => _packagings = value; }
+        public required IEnumerable<Packaging> Packagings { get => _packagings; set => _packagings = value; }
                
         public required IEnumerable<Partner> Partners { get => _partners; set => _partners = value; }
                
