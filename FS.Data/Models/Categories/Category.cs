@@ -3,9 +3,9 @@
 namespace FS.Data.Models.Categories;
 
 
-public class Category(string name = "", string description = "") : Model<int>, ICategory
+public class Category(IEnumerable<ICategory> children, ICategory parent, string name = "", string description = "") : Model<int>, ICategory
 {
-    public IEnumerable<ICategory>? Children { get; set; }
+    public IEnumerable<ICategory>? Children { get; set; } = children;
 
     public bool IsLeaf => Children == null || !Children.Any();
 
@@ -17,7 +17,7 @@ public class Category(string name = "", string description = "") : Model<int>, I
     [LongTextLengthValidation(nameof(Category), nameof(Description))]
     public string Description { get; set; } = description;
 
-    public ICategory? Parent { get; set; }
+    public ICategory? Parent { get; set; } = parent;
 
     public int? ParentId => Parent!.Id;
 

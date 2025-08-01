@@ -7,7 +7,7 @@ using FS.Data.Models.Partners;
 
 namespace FS.Data.Models.Items.TransactionItems
 {
-    public class TransactionItem(IEnumerable<IPartner> suppliers, IPackaging packaging, ICategory category, IMeasurement measurement, DateTime? expiration, float? minimumToBuy, string? name = "", int quantity = 0, float price = 0) : Item(suppliers, packaging, category, measurement, expiration, minimumToBuy, name ?? ""), ITransactionItem
+    public class TransactionItem(IEnumerable<IPartner> suppliers, IPackaging packaging, ICategory category, IMeasurement measurement, DateTime? expiration, int minimumToBuy, string? name = "", int quantity = 0, float price = 0) : Item(suppliers, packaging, category, measurement, expiration, minimumToBuy, name ?? ""), ITransactionItem
     {
         private int _quantity = quantity;
 

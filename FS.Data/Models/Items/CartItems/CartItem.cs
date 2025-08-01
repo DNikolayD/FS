@@ -1,18 +1,23 @@
-﻿using FS.Data.Models.Categories;
-using FS.Data.Models.Measurements;
-using FS.Data.Models.Packegings;
-using FS.Data.Models.Partners;
+﻿// ReSharper disable MissingXmlDoc
+namespace FS.Data.Models.Items.CartItems;
 
-namespace FS.Data.Models.Items.CartItems
+using Categories;
+using Currencies;
+using Measurements;
+using Packegings;
+using Partners;
+
+public class CartItem(IEnumerable<IPartner> suppliers, ICurrency currency, IPackaging? packaging, ICategory category, IMeasurement measurement, DateTime? expiration, int minimumToBuy, string name = "", int quantityToBeOrdered = 1, float price = 0.00f) : Item(suppliers: suppliers, packaging: packaging,  category: category, measurement: measurement, expiration: expiration, minimumToBuy: minimumToBuy, name: name), ICartItem
 {
-    public class CartItem(IEnumerable<IPartner> suppliers, IPackaging? packaging, ICategory category, IMeasurement measurement, DateTime? expiration, float? minimumToBuy, string name = "", int quantity = 1, float price = 0) : Item(suppliers: suppliers, packaging: packaging, category: category, measurement: measurement, expiration: expiration, minimumToBuy: minimumToBuy, name: name), ICartItem
-    {
-        [ValueValidation(nameof(CartItem), nameof(Quantity))]
-        public int Quantity { get; set; } = quantity;
+    [ValueValidation(nameof(CartItem), nameof(QuantityToBeOrdered))]
+    public int QuantityToBeOrdered { get; set; } = quantityToBeOrdered;
 
-        [ValueValidation(nameof(CartItem), nameof(Price))]
-        public float Price { get; set; } = price;
+    [ValueValidation(nameof(CartItem), nameof(Price))]
+    public float Price { get; set; } = price;
 
-        public float TotalPrice => Quantity * Price;
-    }
+    public float TotalPrice => QuantityToBeOrdered * Price;
+
+    public int CurrencyId { get; } = currency.Id;
+
+    public ICurrency Currency { get; set; } = currency;
 }

@@ -1,31 +1,62 @@
-﻿using FS.Data.Models.Categories;
-using FS.Data.Models.Meassurements;
-using FS.Data.Models.Measurements;
-using FS.Data.Models.Packegings;
-using FS.Data.Models.Partners;
+﻿namespace FS.Data.Models.Items;
 
-namespace FS.Data.Models.Items
+using Categories;
+using Measurements;
+using Packegings;
+using Partners;
+
+/// <summary>
+/// The interface of an abstract class that is inherited by CartItems, InventoryItems and TransactionItems.
+/// </summary>
+public interface IItem : IModel<int>
 {
-    public interface IItem : IModel<string>
-    {
-        public string Name { get; set; }
+    /// <summary>
+    /// The name of the item.
+    /// </summary>
+    public string Name { get; set; }
 
-        public float? MinimumToBuy { get; set; }
+    /// <summary>
+    /// The minimum amount that should be ordered any time that item is ordered.
+    /// </summary>
+    public int MinimumToBuy { get; set; }
 
-        public DateTime? Expiration { get; set; }
+    /// <summary>
+    /// The expiration date of the expiration of the item if it has any.
+    /// </summary>
+    public DateTime? Expiration { get; set; }
 
-        public int MeasurementId { get; }
+    /// <summary>
+    /// The id for the measurement unit.
+    /// </summary>
+    public int MeasurementId { get; }
 
-        public IMeasurement Measurement { get; set; }
+    /// <summary>
+    /// The measurement unit of the item
+    /// </summary>
+    public IMeasurement Measurement { get; set; }
 
-        public int? PackagingId { get; }
+    /// <summary>
+    /// The id of the packaging if the item has any. It can be null because it holds the packaging in which the item is used. For example shoes shouldn't have packaging.
+    /// </summary>
+    public int? PackagingId { get; }
 
-        public IPackaging? Packaging { get; set; }
+    /// <summary>
+    /// The packaging itself.
+    /// </summary>
+    public IPackaging? Packaging { get; set; }
 
-        public int CategoryId { get; }
+    /// <summary>
+    /// The id of the category of the items. For example, Product.
+    /// </summary>
+    public int CategoryId { get; }
 
-        public ICategory Category { get; set; }
+    /// <summary>
+    /// The category itself.
+    /// </summary>
+    public ICategory Category { get; set; }
 
-        public IEnumerable<IPartner> Suppliers { get; set; }
-    }
+    /// <summary>
+    /// List of partners from which you can order the item.
+    /// </summary>
+    public IEnumerable<IPartner> Suppliers { get; set; }
 }
