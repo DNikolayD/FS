@@ -1,28 +1,51 @@
-﻿using System.Collections;
-using FS.Data.Models.Categories;
-using FS.Data.Models.Measurements;
-using FS.Data.Models.Members;
-using FS.Data.Models.Packegings;
-using FS.Data.Models.Partners;
+﻿// ReSharper disable PossibleMultipleEnumeration
+// ReSharper disable MissingXmlDoc
 
-namespace FS.Data.Models.Items.TransactionItems
+using FS.Data.Models.Countries;
+using FS.Data.Models.Locations;
+
+namespace FS.Data.Models.Items.TransactionItems;
+
+using Currencies;
+using Categories;
+using Measurements;
+using Members;
+using Packegings;
+using Partners;
+
+
+public class TransactionItem(
+    IEnumerable<IPartner> suppliers,
+    IMember member,
+    IPackaging packaging,
+    ICategory category,
+    IMeasurement measurement,
+    DateTime? expiration,
+    int minimumToBuy,
+    ICurrency currency,
+    IPartner supplier,
+    string? name = "",
+    int quantity = 0,
+    float pricePerUnit = 0) : Item(suppliers, packaging, category, measurement, expiration, minimumToBuy, name ?? ""),
+    ITransactionItem
 {
-    public class TransactionItem(IEnumerable<IPartner> suppliers, IPackaging packaging, ICategory category, IMeasurement measurement, DateTime? expiration, int minimumToBuy, string? name = "", int quantity = 0, float price = 0) : Item(suppliers, packaging, category, measurement, expiration, minimumToBuy, name ?? ""), ITransactionItem
-    {
-        private int _quantity = quantity;
+    [ValueValidation(nameof(TransactionItem), nameof(Quantity))]
+    public int Quantity { get; set; } = quantity;
 
-        private float _price = price;
+    [ValueValidation(nameof(TransactionItem), nameof(PricePerUnit))]
+    public float PricePerUnit { get; set; } = pricePerUnit;
 
-        [ValueValidation(nameof(TransactionItem), nameof(Quantity))]
-        public int Quantity { get => _quantity; set => _quantity = value; }
+    public float TotalPrice  => PricePerUnit * Quantity;
 
-        [ValueValidation(nameof(TransactionItem), nameof(Price))]
-        public float Price { get => _price; set => _price = value; }
+    public int CurrencyId => Currency.Id;
 
-        public float Total  => _price * _quantity;
+    public ICurrency Currency { get; set; } = currency;
 
-        public int MemberId => Member.Id;
+    public int SupplierId => Supplier.Id;
 
-        public required IMember Member { get; set; }
-    }
+    public IPartner Supplier { get; set; } =  suppliers.Any(x => x.Id == supplier.Id) ? supplier : new Partner(new Location(new Country()));
+
+    public int MemberId => Member.Id;
+
+    public IMember Member { get; set; } = member;
 }

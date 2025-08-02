@@ -17,7 +17,7 @@ public class CartItem(IEnumerable<IPartner> suppliers, ICurrency currency, IPack
 
     public float TotalPrice => QuantityToBeOrdered * Price;
 
-    public int CurrencyId { get; } = currency.Id;
+    public int CurrencyId => Currency.Id;
 
     public ICurrency Currency { get; set; } = currency;
 }

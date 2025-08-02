@@ -7,7 +7,7 @@ namespace FS.Data.Models.Currencies
         public ICurrency ToCurrency { get; set; } = toCurrency;
         public decimal ConversionRate { get; set; } = conversionRate;
 
-        public int FromCurrencyId { get; } = fromCurrency.Id;
-        public int ToCurrencyId { get; } = toCurrency.Id;
+        public int FromCurrencyId => FromCurrency.Id;
+        public int ToCurrencyId => ToCurrency.Id;
     }
 }

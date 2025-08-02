@@ -1,7 +1,12 @@
-﻿namespace FS.Data.Models.Items.InventoryItems
+﻿namespace FS.Data.Models.Items.InventoryItems;
+
+/// <summary>
+/// An interface for items in the user's inventory.
+/// </summary>
+public interface IInventoryItem : IItem
 {
-    public interface IInventoryItem : IItem
-    {
-        public int Quantity { get; set; }
-    }
+    /// <summary>
+    /// The quantity available in the user's inventory.
+    /// </summary>
+    public int QuantityAvailable { get; set; }
 }

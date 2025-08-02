@@ -2,7 +2,7 @@
 
 namespace FS.Data.Models.Partners
 {
-    public class Partner(string name = "") : Model<int>, IPartner
+    public class Partner(ILocation location, string name = "") : Model<int>, IPartner
     {
         private string _name = name;
 
@@ -11,6 +11,6 @@ namespace FS.Data.Models.Partners
 
         public int LocationId => Location.Id;
 
-        public required ILocation Location { get; set; }
+        public ILocation Location { get; set; }
     }
 }
