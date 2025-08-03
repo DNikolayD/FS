@@ -1,13 +1,12 @@
 ﻿using FS.Data.Models.Locations;
 
-namespace FS.Data.Models.Partners
+namespace FS.Data.Models.Partners;
+
+public interface IPartner : IModel<int>
 {
-    public interface IPartner : IModel<int>
-    {
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public int LocationId { get; }
+    public int LocationId { get; }
 
-        public ILocation Location { get; set; }
-    }
+    public ILocation Location { get; set; }
 }

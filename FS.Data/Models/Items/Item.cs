@@ -4,7 +4,7 @@ namespace FS.Data.Models.Items;
 
 using Categories;
 using Measurements;
-using Packegings;
+using Packagings;
 using Partners;
 
 public abstract class Item(IEnumerable<IPartner> suppliers, IPackaging? packaging, ICategory category, IMeasurement measurement, DateTime? expiration, int minimumToBuy, string name = "") : Model<int>, IItem

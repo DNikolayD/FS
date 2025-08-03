@@ -1,9 +1,9 @@
 ﻿// ReSharper disable MissingXmlDoc
 // ReSharper disable EntityFramework.ModelValidation.UnlimitedStringLength
-namespace FS.Data.Models.Members;
+namespace FS.Data.Models.Packagings;
 
-public class Member(string name = "") : Model<int>, IMember
+public class Packaging(string name = "") : Model<int>, IPackaging
 {
-    [ShortTextLengthValidation(nameof(Member), nameof(Name))]
+    [ValueValidation(nameof(Packaging), nameof(Name))]
     public string Name { get; set; } = name;
 }

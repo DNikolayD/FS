@@ -1,16 +1,12 @@
 ﻿// ReSharper disable PossibleMultipleEnumeration
 // ReSharper disable MissingXmlDoc
-
-using FS.Data.Models.Countries;
-using FS.Data.Models.Locations;
-
 namespace FS.Data.Models.Items.TransactionItems;
 
 using Currencies;
 using Categories;
 using Measurements;
 using Members;
-using Packegings;
+using Packagings;
 using Partners;
 
 
@@ -43,7 +39,7 @@ public class TransactionItem(
 
     public int SupplierId => Supplier.Id;
 
-    public IPartner Supplier { get; set; } =  suppliers.Any(x => x.Id == supplier.Id) ? supplier : new Partner(new Location(new Country()));
+    public IPartner Supplier { get; set; } =  suppliers.Any(x => x.Id == supplier.Id) ? supplier : new Partner();
 
     public int MemberId => Member.Id;
 

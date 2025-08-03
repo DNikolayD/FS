@@ -2,7 +2,7 @@
 
 using Categories;
 using Measurements;
-using Packegings;
+using Packagings;
 using Partners;
 
 /// <summary>
