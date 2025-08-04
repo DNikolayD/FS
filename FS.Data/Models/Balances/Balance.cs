@@ -12,4 +12,6 @@ public class Balance(ICurrency currency, decimal value = 0) : Model<int>, IBalan
     public int CurrencyId  => Currency.Id; 
     
     public required ICurrency Currency { get; set; } = currency;
+
+    public Balance(decimal value = 0) : this(Instantiate<Currency>(), value) {}
 }

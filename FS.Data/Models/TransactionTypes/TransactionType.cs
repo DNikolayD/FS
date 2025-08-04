@@ -1,10 +1,9 @@
-﻿namespace FS.Data.Models.TransactionTypes
-{
-    public class TransactionType(string name = "") : Model<int>, ITransactionType
-    {
-        private string _name = name;
+﻿// ReSharper disable MissingXmlDoc
+// ReSharper disable EntityFramework.ModelValidation.UnlimitedStringLength
+namespace FS.Data.Models.TransactionTypes;
 
-        [ShortTextLengthValidation(nameof(TransactionType), nameof(Name))]
-        public string Name { get => _name; set => _name = value; }
-    }
+public class TransactionType(string name = "") : Model<int>, ITransactionType
+{
+    [ShortTextLengthValidation(nameof(TransactionType), nameof(Name))]
+    public string Name { get; set; } = name;
 }

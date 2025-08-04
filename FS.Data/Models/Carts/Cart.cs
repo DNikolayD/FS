@@ -13,4 +13,10 @@ public class Cart(List<ICartItem> cartItems, IPartner partner) : Model<int>, ICa
     public required IPartner Partner { get; set; } = partner;
 
     public required IEnumerable<ICartItem> CartItems { get; set; } = cartItems;
+
+    public Cart(IPartner partner) : this([], partner){}
+
+    public Cart(List<ICartItem> cartItems) : this(cartItems, Instantiate<Partner>()){}
+
+    public Cart() : this([], Instantiate<Partner>()){}
 }

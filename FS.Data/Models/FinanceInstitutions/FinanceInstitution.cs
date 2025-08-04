@@ -10,4 +10,6 @@ public class FinanceInstitution(IEnumerable<IFinanceType> financeTypes, string n
     public string Name { get; set; } = name;
 
     public required IEnumerable<IFinanceType> FinanceTypes { get; set; } = financeTypes;
+
+    public FinanceInstitution(string name = "") : this([], name){}
 }

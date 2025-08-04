@@ -21,4 +21,8 @@ public class Category(IEnumerable<ICategory> children, ICategory parent, string 
 
     public int? ParentId => Parent!.Id;
 
+    public Category(IEnumerable<ICategory> children, string name = "", string description = "") : this(children, Instantiate<Category>(), name, description){}
+    public Category(ICategory parent, string name = "", string description = "") : this([], parent, name, description){}
+
+    public Category(string name = "", string description = "") : this([], Instantiate<Category>(), name, description){}
 }

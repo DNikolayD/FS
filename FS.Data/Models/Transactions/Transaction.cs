@@ -1,45 +1,43 @@
-﻿using FS.Data.Models.Currencies;
-using FS.Data.Models.Items.TransactionItems;
-using FS.Data.Models.Partners;
-using FS.Data.Models.TransactionTypes;
+﻿// ReSharper disable MissingXmlDoc
+namespace FS.Data.Models.Transactions;
 
-namespace FS.Data.Models.Transactions
+using Currencies;
+using Items.TransactionItems;
+using Partners;
+using TransactionTypes;
+
+
+public class Transaction(IPartner partner, ITransactionType transactionType, ICurrency currency, DateTime transactionDate = default) : Model<string>, ITransaction
 {
-    public class Transaction(float amountCurrency = 0, DateTime transactionDate = default, float exchangeRate = 1, float sumToPay = 0) : Model<string>, ITransaction
-    {
-        private float _amountCurrency = amountCurrency;
+    public DateTime TransactionDate { get; set; } = transactionDate > DateTime.Now ? DateTime.Now : transactionDate;
 
-        private DateTime _transactionDate = transactionDate == default ? DateTime.Now : transactionDate;
+    public float SumToPay => TransactionItems.Sum(x => x.TotalPrice);
 
-        private float _exchangeRate = exchangeRate;
+    public int PartnerId => Partner.Id;
 
-        private float _sumToPay = sumToPay;
+    public required IPartner Partner { get; set; } = partner;
 
-        [ValueValidation(nameof(Transaction), nameof(AmountCurrency))]
-        public float AmountCurrency { get => _amountCurrency; set => _amountCurrency = value; }
+    public int TransactionTypeId => TransactionType.Id;
 
-        public float AmountBGN  => _amountCurrency * _exchangeRate;
+    public required ITransactionType TransactionType { get; set; } = transactionType;
 
-        public DateTime TransactionDate { get => _transactionDate; set => _transactionDate = value; }
+    public int CurrencyId => Currency.Id;
 
-        [ValueValidation(nameof(Transaction), nameof(ExchangeRate))]
-        public float ExchangeRate { get => _exchangeRate; set => _exchangeRate = value; }
+    public required ICurrency Currency { get; set; } = currency;
 
-        [ValueValidation(nameof(Transaction), nameof(SumToPay))]
-        public float SumToPay { get => _sumToPay; set => _sumToPay = value; }
+    public IEnumerable<ITransactionItem> TransactionItems { get; set; } = [];
 
-        public int PartnerId => Partner.Id;
+    public Transaction(IPartner partner, ITransactionType transactionType, DateTime transactionDate = default) : this(partner, transactionType, new Currency(), transactionDate){}
 
-        public required IPartner Partner { get; set; }
+    public Transaction(IPartner partner, ICurrency currency, DateTime transactionDate = default) : this(partner, new TransactionType(), currency, transactionDate){}
 
-        public int TransactionTypeId => TransactionType.Id;
+    public Transaction(ICurrency currency, ITransactionType transactionType, DateTime transactionDate = default) : this(new Partner(), transactionType, currency, transactionDate){}
 
-        public required ITransactionType TransactionType { get; set; }
+    public Transaction(ITransactionType transactionType, DateTime transactionDate = default) : this(new Partner(), transactionType, new Currency(), transactionDate){}
 
-        public int CurrencyId => Currency.Id;
+    public Transaction(IPartner partner, DateTime transactionDate = default) : this(partner, new TransactionType(), new Currency(), transactionDate){}
 
-        public required ICurrency Currency { get; set; }
+    public Transaction(ICurrency currency, DateTime transactionDate = default) : this(new Partner(), new TransactionType(), currency, transactionDate){}
 
-        public required IEnumerable<ITransactionItem> TransactionItems { get; set; }
-    }
+    public Transaction(DateTime transactionDate = default) : this(new Partner(), new TransactionType(), new Currency(), transactionDate){}
 }

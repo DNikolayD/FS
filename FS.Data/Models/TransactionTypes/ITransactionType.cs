@@ -1,7 +1,12 @@
-﻿namespace FS.Data.Models.TransactionTypes
+﻿namespace FS.Data.Models.TransactionTypes;
+
+/// <summary>
+/// The type of  transaction.
+/// </summary>
+public interface ITransactionType : IModel<int>
 {
-    public interface ITransactionType : IModel<int>
-    {
-        public string Name { get; set; }
-    }
+    /// <summary>
+    /// The name of the type.
+    /// </summary>
+    public string Name { get; set; }
 }
