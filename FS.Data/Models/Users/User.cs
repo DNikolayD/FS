@@ -15,6 +15,7 @@ using FS.Data.Models.Members;
 using FS.Data.Models.Measurements;
 using FS.Data.Models.Packagings;
 using FS.Data.Models.Partners;
+using FS.Data.Models.Payments;
 using FS.Data.Models.Roles;
 using FS.Data.Models.TransactionTypes;
 
@@ -24,110 +25,60 @@ namespace FS.Data.Models.Users
 {
     public class User : IdentityUser, IModel<string>
     {
-        private bool _isDefault;
+        public bool IsDefault { get; set; }
 
-        private DateTime _createTime;
+        public DateTime CreateTime { get; set; }
 
-        private bool _isEditable;
+        public bool IsEditable { get; set; }
 
-        private bool _isModified;
+        public bool IsModified { get; set; }
 
-        private DateTime? _updateTime;
+        public DateTime? UpdateTime { get; set; }
 
-        private bool _isDeletable;
+        public bool IsDeletable { get; set; }
 
-        private bool? _isDeleted;
+        public bool? IsDeleted { get; set; }
 
-        private DateTime? _deleteTime;
+        public DateTime? DeleteTime { get; set; }
 
-        private IEnumerable<Balance> _balances = [];
+        public required IEnumerable<Balance> Balances { get; set; } = [];
 
-        private IEnumerable<Cart> _carts =[];
+        public required IEnumerable<Cart> Carts { get; set; } = [];
 
-        private IEnumerable<Category> _categories = [];
+        public required IEnumerable<Category> Categories { get; set; } = [];
 
-        private IEnumerable<Country> _countries = [];
+        public required IEnumerable<Country> Countries { get; set; } = [];
 
-        private IEnumerable<Currency> _currencies = [];
+        public required IEnumerable<Currency> Currencies { get; set; } = [];
 
-        private IEnumerable<FinanceInstitution> _financeInstitutions = [];
+        public required IEnumerable<FinanceInstitution> FinanceInstitutions { get; set; } = [];
 
-        private IEnumerable<FinanceType> _financeTypes = [];
+        public required IEnumerable<FinanceType> FinanceTypes { get; set; } = [];
 
-        private IEnumerable<Item> _items = [];
+        public required IEnumerable<Item> Items { get; set; } = [];
 
-        private IEnumerable<CartItem> _cartItems = [];
+        public required IEnumerable<CartItem> CartItems { get; set; } = [];
 
-        private IEnumerable<InventoryItem> _inventoryItems = [];
+        public required IEnumerable<InventoryItem> InventoryItems { get; set; } = [];
 
-        private IEnumerable<TransactionItem> _transactionItems = [];
+        public required IEnumerable<TransactionItem> TransactionItems { get; set; } = [];
 
-        private IEnumerable<Location> _locations = [];
+        public required IEnumerable<Location> Locations { get; set; } = [];
 
-        private IEnumerable<Member> _members = [];
+        public required IEnumerable<Member> Members { get; set; } = [];
 
-        private IEnumerable<Measurement> _measurements = [];
+        public required IEnumerable<Measurement> Measurements { get; set; } = [];
 
-        private IEnumerable<Packaging> _packagings = [];
+        public required IEnumerable<Packaging> Packagings { get; set; } = [];
 
-        private IEnumerable<Partner> _partners = [];
+        public required IEnumerable<Partner> Partners { get; set; } = [];
 
-        private IEnumerable<Transaction> _transactions = [];
+        public required IEnumerable<Transaction> Transactions { get; set; } = [];
 
-        private IEnumerable<TransactionType> _transactionTypes = [];
+        public required IEnumerable<TransactionType> TransactionTypes { get; set; } = [];
 
-        public bool IsDefault { get => _isDefault; set => _isDefault = value; }
+        public IEnumerable<IPayment> Payments { get; set; } = [];
 
-        public DateTime CreateTime { get => _createTime; set => _createTime = value; }
-
-        public bool IsEditable { get => _isEditable; set => _isEditable = value; }
-
-        public bool IsModified { get => _isModified; set => _isModified = value; }
-
-        public DateTime? UpdateTime { get => _updateTime; set => _updateTime = value; }
-
-        public bool IsDeletable { get => _isDeletable; set => _isDeletable = value; }
-
-        public bool? IsDeleted { get => _isDeleted; set => _isDeleted = value; }
-
-        public DateTime? DeleteTime { get => _deleteTime; set => _deleteTime = value; }
-
-        public required IEnumerable<Balance> Balances { get => _balances; set => _balances = value; }
-               
-        public required IEnumerable<Cart> Carts { get => _carts; set => _carts = value; }
-               
-        public required IEnumerable<Category> Categories { get => _categories; set => _categories = value; }
-               
-        public required IEnumerable<Country> Countries { get => _countries; set => _countries = value; }
-               
-        public required IEnumerable<Currency> Currencies { get => _currencies; set => _currencies = value; }
-               
-        public required IEnumerable<FinanceInstitution> FinanceInstitutions { get => _financeInstitutions; set => _financeInstitutions = value; }
-               
-        public required IEnumerable<FinanceType> FinanceTypes { get => _financeTypes; set => _financeTypes = value; }
-               
-        public required IEnumerable<Item> Items { get => _items; set => _items = value; }
-               
-        public required IEnumerable<CartItem> CartItems { get => _cartItems; set => _cartItems = value; }
-               
-        public required IEnumerable<InventoryItem> InventoryItems { get => _inventoryItems; set => _inventoryItems = value; }
-               
-        public required IEnumerable<TransactionItem> TransactionItems { get => _transactionItems; set => _transactionItems = value; }
-               
-        public required IEnumerable<Location> Locations { get => _locations; set => _locations = value; }
-               
-        public required IEnumerable<Member> Members { get => _members; set => _members = value; }
-               
-        public required IEnumerable<Measurement> Measurements { get => _measurements; set => _measurements = value; }
-               
-        public required IEnumerable<Packaging> Packagings { get => _packagings; set => _packagings = value; }
-               
-        public required IEnumerable<Partner> Partners { get => _partners; set => _partners = value; }
-               
-        public required IEnumerable<Transaction> Transactions { get => _transactions; set => _transactions = value; }
-               
-        public required IEnumerable<TransactionType> TransactionTypes { get => _transactionTypes; set => _transactionTypes = value; }
-               
         public string RoleId => Role.Id;
 
         public required Role Role { get; set; }
